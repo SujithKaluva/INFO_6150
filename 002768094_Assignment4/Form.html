@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Feedback</title>
+	<style>
+		label {
+			float: left;
+			width: 150px;
+		}
+
+		#container {
+			width: 1400px;
+			margin: auto;
+			background-color: beige;
+		}
+
+		main {
+			padding: 50px;
+		}
+		.selection{
+			display: none;
+		}
+
+		table{
+			border: 1px solid blueviolet;
+			border-collapse: collapse;
+			width: 80%;
+		}
+		td,th{
+			text-align: left;
+			border:1px solid #dddddd;
+			padding:8px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<main>
+			<h2>Feedback</h2>
+			<h3>Love something? Hate something? Let us know!</h3>
+			Note : Fields marked with an asterisk(<span style="color: red;">*</span>) are mandatory
+			<br /><br />
+			<form method="post" novalidate id="myForm">
+				<label>Title<span style="color: red;">*</span>:</label>
+				<input type="radio" name="title" id="miss" value="Miss." required="required" />Miss
+				<input type="radio" name="title" id="mr" value="Mr." required="required" />Mr.
+				<input type="radio" name="title" id="mrs" value="Mrs." required="required" />Mrs. <br />
+
+				<div id="error_title" style="color: red;display: none;">
+					Please select a Title
+				</div><br />
+				<label for="firstName">First Name<span style="color: red;">*</span>:</label>
+				<input type="text" name="firstName" id="firstName" placeholder="First Name" required  onblur="validinput(this,1,'firstName')"/>
+				<br />
+				<div id="error_firstName"  style="color: red;display: none;">
+					Please enter a valid First Name
+				</div><br />
+				<label for="lastName">Last Name<span style="color: red;">*</span>:</label>
+				<input type="text" name="lastName" id="lastName" placeholder="Last Name" required onblur="validinput(this,1,'lastName')"/>
+				<br />
+				<div id="error_lastName"  style="color: red;display: none;">
+					Please enter a valid Last Name
+				</div>
+				<br />
+				<label for="emailId">Email Id<span style="color: red;">*</span>:</label>
+				<input type="text" name="emailId" id="emailId" placeholder="username@northeastern.edu" required  onblur="validinput(this,3)"/>
+				<div id="error_emailId"  style="color: red;display: none;">
+					Please enter a valid Northeastern Email Id
+				</div>
+				<br /><br />
+
+				<label for="phoneNumber">Phone Number<span style="color: red;">*</span></label>
+				<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" required onblur="validinput(this,4)"/>
+				<div id="error_phoneNumber"  style="color: red;display: none;">
+					Please enter a valid Phone Number
+				</div>
+				<br /><br />
+
+				<label for="streetAddress1">Street Address 1<span style="color: red;">*</span>:</label>
+				<input type="text" name="streetAddress1" id="streetAddress1" placeholder="address" required onblur="validinput(this,6,'streetAddress1')"/>
+				<div id="error_streetAddress1"  style="color: red;display: none;">
+					Please enter address
+				</div>
+				<br /><br />
+
+				<label for="streetAddress2">Street Address 2:</label>
+				<input type="text" name="streetAddress2" id="streetAddress2" placeholder="address" />
+				<br /><br />
+
+				<label for="city">City<span style="color: red;">*</span>:</label>
+				<input type="text" name="city" id="city" placeholder="city" required onblur="validinput(this,1,'city')"/>
+				<div id="error_city"  style="color: red;display: none;">
+					Please enter a valid City Name
+				</div>
+				<br /><br />
+
+				<label for="state">State<span style="color: red;">*</span>:</label>
+				<input type="text" name="state" id="state" placeholder="state" required onblur="validinput(this,1,'state')"/>
+				<div id="error_state"  style="color: red;display: none;">
+					Please enter a valid State Name
+				</div>
+				<br /><br />
+
+				<label for="zipcode">Zip Code<span style="color: red;">*</span>:</label>
+				<input type="text" name="zipcode" id="zipcode" placeholder="xxxxx" required onblur="validinput(this,5)"/>
+				<div id="error_zipcode"  style="color: red;display: none;">
+					Please enter a valid Zip Code
+				</div>
+				<br /><br />
+
+				<label for="source">How did you hear<span style="color: red;">*</span>:</label>
+				<input type="checkbox" name="source" value="Facebook" /> Facebook
+				<input type="checkbox" name="source" value="Google" /> Google
+				<input type="checkbox" name="source" value="Yelp" /> Yelp 
+				<div id="error_source"  style="color: red;display: none;">
+					Please select one
+				</div>
+				<br /><br />
+
+				<label for="comments">Comments<span style="color: red;">*</span>:</label>
+				<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25" required onblur="validinput(this,1,'comments')"></textarea>
+				<div id="error_comments"  style="color: red;display: none;">
+					Please enter comments
+				</div>
+				<br><br>
+				<label for="drinks">Drinks<span style="color: red;">*</span>:</label>
+				<select name="drinks" id="drinks" onchange="showText()">
+					<option value="default" selected>Select an option</option>
+					<option value="Tea">tea</option>
+					<option value="Coffee">coffee</option>
+					<option value="Coke">coke</option>
+					<option value="Soda">soda</option>
+					<option value="None">None</option>
+				</select>
+
+				<div id="selectionbody">
+					<label for="largeTeaLabel" id="largeTeaLabel" class="selection"> Large Tea</label>
+					<input type="checkbox" id="largeTeaValue" name="source100" value="Large Tea" class="selection" onchange="onSelectExtras(this, id)"><br>			
+		
+					<label for="mediumCoffeeLabel" id="mediumCoffeeLabel" class="selection"> Medium Coffee</label>
+					  <input type="checkbox" class="selection" id="mediumCoffeeValue" name="source100" value="Medium Coffee" onchange="onSelectExtras(this, id)"> <br>
+		
+					<label for="cokeCanLabel" id="cokeCanLabel" class="selection"> Coke Can</label>  
+					  <input type="checkbox" class="selection" id="cokeCanValue" name="source100" value="Coke Can" onchange="onSelectExtras(this, id)"><br>
+					
+					<label for="sodaLabel" id="sodaLabel"class="selection"> Sparkling Soda</label>  
+					  <input type="checkbox" class="selection" id="sodaValue" name="source100" value="Sparkling Soda" onchange="onSelectExtras(this, id)"><br>
+					
+					<label for="comments1" id="commentsLabel" class="selection">Comments on the selected item<span style="color: red;">*</span>:</label>
+					<textarea name="text1"  class ="selection" id="comments1" placeholder="Your comments about item selected" rows="5" cols="25"></textarea>
+				
+					  <br><br>
+					</div>
+
+				<br /><br />
+				<input type="button" name="Submit" title="Submit" value="Submit" onclick="submitForm()">
+				<input type="Reset" />
+				<br /><br />
+			</form>
+
+			<div class="container">
+				<table id="myTable">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Full Name</th>
+							<th>Phone Number</th>
+							<th>Email ID</th>
+							<th>Address 1</th>
+							<th>Address 2</th>
+							<th>City</th>
+							<th>State</th>
+							<th>Zip Code</th>
+							<th>How did you hear</th>
+							<th>Comments</th>
+							<th>Drinks</th>
+							<th>Selection</th>
+							<th>Extra Comments</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</main>
+	</div>
+    <script src="script.js"></script>
+</body>
+
+</html>

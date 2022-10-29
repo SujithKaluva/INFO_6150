@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Husky Cafe</title>
+        <link rel="icon" href="HuskyCafe.png">
+        <style>
+            *{
+                margin: 0%;
+                padding: 0%;
+            }
+            .main{
+                height: 100vh;
+                width: 200vh;
+                background-image: linear-gradient(rgba(0,0,0,0.371),rgba(0, 0, 0, 0.371)),url("/Images/background.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .navigationsmenu img{
+                float: left;
+                width: 140px;
+                height: 100px;
+                cursor: pointer;
+
+            }
+            .navigationsmenu{
+                width: 95%;
+                margin: auto;
+                padding: 30px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .navigationsmenu ul li{
+                list-style: none;
+                display: inline-block;
+                margin: 0 25px;
+                position: relative;
+            }
+            .navigationsmenu ul li a{
+                text-decoration: none;
+                color: beige;
+                font-weight: bold;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            .navigationsmenu ul li::after{
+                content: '';
+                height: 1px;
+                width: 0;
+                background: rgb(195, 146, 82);
+                position: absolute;
+                left: 0;
+                bottom: -5px;
+                transition: 1s;
+            }
+            .navigationsmenu ul li:hover::after{
+                padding-left: 10px;
+                width: 100%;
+            }
+            .container{
+                text-align: center;
+            }
+            .container h1{
+                color: beige;
+                text-decoration: solid;
+                font-size: 100px;
+            }
+            .container p{
+                color: rgb(17, 17, 17);
+                font-size: 40px;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            button{
+                width: 200px;
+                padding: 15px 0;
+                text-align: center;
+                margin: 20px 10px;
+                border-radius: 25px;
+                font-weight: bold;
+                border: 1px solid beige;
+                color: white;
+                cursor: pointer;
+                background: transparent;
+                position: relative;
+                overflow: hidden;
+            }
+            button:hover{
+                background-color: rgba(245, 245, 220, 0.637);
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="navigationsmenu">
+                <a href="/Home.html"><img src="HuskyCafe.png" alt="Husky Cafe"/></a>
+                <ul>
+                    <li><a href="/Menu.html">Menu</a></li>
+                    <li><a href="/Register.html">Register</a></li>
+                </ul>
+            </div>
+
+            <div class="container">
+                <h1>Husky Cafe</h1>
+                <br/>
+                <p>"A yawn is a silent scream for coffee!"</p>
+                <br/>
+                <button type="button" onclick="location.href='/OrderNow.html'"><span></span>ORDER NOW</button>
+            </div>
+
+            </div>
+        </div>
+    </body>
+</html>
