@@ -1,0 +1,14 @@
+.container{
+    /* border-radius: 10%; */
+    border: black 2px solid;
+    padding: 20px;
+    /* justify-content: center;
+    align-items: center; */
+    margin: 20px;
+    text-align: center;
+    
+}
+
+.butto{
+   margin: 20px;
+}
